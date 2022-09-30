@@ -36,3 +36,46 @@
     transform: rotate(360deg);
   }
 }
+
+.container{
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/*----homepage--header------*/
+
+header{
+  width: 90%;
+  max-width: 1200px;
+  margin: 20px auto 100px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header .text-header{
+  width: 60%;
+}
+
+header .text-header h1{
+  font-size: 50px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+header .text-header p{
+  font-size: 20px;
+  font-weight: 100;
+  font-style: italic;
+}
+
+header .img-header{
+  width: 40%;
+}
+
+header .img-header img{
+  width: 450px;
+  height: 400px;
+}
+
