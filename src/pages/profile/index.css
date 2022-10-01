@@ -1,0 +1,42 @@
+.user-profile{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 100px;
+    padding: 10px;
+}
+
+.user-img{
+    width: 40%;
+    background-color: #d7d7d7;
+    padding: 10px;
+    font-weight:200;
+    font-size: 20px;
+}
+
+.user-img img{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin: 10px auto;
+}
+
+.user-info{
+    width: 40%;
+    background: #d7d7d7;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.user-full-name, .user-email, .user-facebook, .user-git, .user-youtube{
+    font-weight: 200;
+}
+
+.user-social-network{
+    text-align: start;
+    background: #d7d7d7;
+    width: 39%;
+    padding: 10px;
+    margin: 70px;
+}
