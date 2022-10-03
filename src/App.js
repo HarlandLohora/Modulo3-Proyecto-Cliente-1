@@ -63,9 +63,9 @@ export default function App() {
           <Route key={route.path} path={route.path} element={route.element} />
         ))*/}
         <Route path="/" element={<HomePage/>}></Route>
-        <Route path="/auth/login" element={<LogIn/>}></Route>
-        <Route path="/auth/signup" element={<Signup/>}></Route>
-        <Route path="/profile" element={<Profile/>}></Route>
+        <Route path="/auth/login" element={<LogIn authenticate={authenticate}/>}></Route>
+        <Route path="/auth/signup" element={<Signup authenticate={authenticate}/>} ></Route>
+        <Route path="/profile" element={<Profile authenticate={authenticate}/>}></Route>
         <Route path="/singlePost" element={<SinglePost />}></Route>
       </Routes>
     </div>

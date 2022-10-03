@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import './LogIn.css'
 import { login } from "../services/auth";
 import { useNavigate } from "react-router-dom";
 import "./Signup";
@@ -54,7 +53,7 @@ export default function LogIn({ authenticate }) {
 
   return (
     <div>
-      <Flex
+         <Flex
       minH={'100vh'}
       align={'center'}
       justify={'center'}
@@ -72,72 +71,46 @@ export default function LogIn({ authenticate }) {
           boxShadow={'lg'}
           p={8}>
           <Stack spacing={4}>
-          <form onSubmit={handleFormSubmission} className="signup__form">
-            <FormControl id="username">
-              <FormLabel>Username</FormLabel>
-              <Input
-                id="input-username"
-                type="text"
-                name="username"
-                placeholder="username"
-                value={username}
-                onChange={handleInputChange}
-                required
-              />
-            </FormControl>
-            <FormControl id="email">
-              <FormLabel>Email address</FormLabel>
-                  <Input
-                  id="input-username"
-                  type="email"
-                  name="email"
-                  placeholder="gmail@"
-                  value={username}
-                  onChange={handleInputChange}
-                  required
-                />
-            </FormControl>
-            <FormControl id="password">
-              <FormLabel>Password</FormLabel>
-              <Input
-                id="input-password"
-                type="password"
-                name="password"
-                placeholder="Password"
-                value={password}
-                onChange={handleInputChange}
-                required
-                minLength="8"
-              />
-            </FormControl>
-            <FormControl id="error">
-                  {error && (
-                <div className="error-block">
-                  <p>There was an error submiting the form:</p>
-                  <p>{error.message}</p>
-                </div>
-              )}
-            </FormControl>
-            <Stack spacing={10}>
-              <Stack
-                direction={{ base: 'column', sm: 'row' }}
-                align={'start'}
-                justify={'space-between'}>
-              </Stack>
-              <Button
-                bg={'blue.400'}
-                color={'white'}
-                _hover={{
-                  bg: 'blue.500',
-                }} className="button__submit" type="submit">
-                LogIn
-              </Button>            
-            </Stack>
-            </form>
-          </Stack>        
+
+    <form onSubmit={handleFormSubmission} className="signup__form">
+      <label htmlFor="input-username">Username</label>
+      <Input
+        id="input-username"
+        type="text"
+        name="username"
+        placeholder="username"
+        value={username}
+        onChange={handleInputChange}
+        required
+      />
+
+      <label htmlFor="input-password">Password</label>
+      <Input
+        id="input-password"
+        type="password"
+        name="password"
+        placeholder="Password"
+        value={password}
+        onChange={handleInputChange}
+        required
+        minLength="8"
+      />
+
+      {error && (
+        <div className="error-block">
+          <p>There was an error submiting the form:</p>
+          <p>{error.message}</p>
+        </div>
+      )}
+
+      <button className="button__submit" type="submit">
+        Submit
+      </button>
+    </form>
+    </Stack>        
         </Box>
       </Stack>     
     </Flex>
-    </div>
+  </div>
   );
 }

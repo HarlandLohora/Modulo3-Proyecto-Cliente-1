@@ -29,7 +29,7 @@ import {
 } from '@chakra-ui/react';
 
 
-export default function WithSubnavigation() {
+export default function WithSubnavigation(props) {
   const { isOpen, onToggle } = useDisclosure();
   const { colorMode, toggleColorMode } = useColorMode();
 
@@ -65,19 +65,22 @@ export default function WithSubnavigation() {
             textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
             fontFamily={'heading'}
             color={useColorModeValue('gray.800', 'white')}>
-           Logo
+          <a href='/'>LOGO</a>
           </Text>
 
           <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
             <DesktopNav />
+            
           </Flex>
         </Flex>
-
+              
         <Button onClick={toggleColorMode}>
                 {colorMode === 'light' ? <h1>Claro</h1> : <h1>Oscuro</h1>}
         </Button>
-
+            
         <Menu>
+        {props.user ?(
+          <>
                 <MenuButton
                   as={Button}
                   rounded={'full'}
@@ -99,13 +102,41 @@ export default function WithSubnavigation() {
                   </Center>
                   <br />
                   <Center>
-                    <p>Username</p>
+                    <p>{props.user?.username}</p>
                   </Center>
                   <br />
                   <MenuDivider />
-                  <MenuItem>Your Account</MenuItem>
-                  <MenuItem>Logout</MenuItem>
+                  <MenuItem><a href='/profile'>Your account</a></MenuItem>
+                  <MenuItem><button className="nav-logoutbtn" onClick={props.handleLogout}>Logout</button></MenuItem>
                 </MenuList>
+                </>
+        ):( 
+          <div>
+          <Button
+            as={'a'}
+            fontSize={'sm'}
+            padding={'5px'}
+            fontWeight={400}
+            variant={'link'}
+            href={'/auth/login'}>
+            Login
+           </Button>
+
+           <Button
+            display={{ base: 'none', md: 'inline-flex' }}
+            as={'a'}
+            fontSize={'sm'}
+            fontWeight={600}
+            color={'white'}
+            bg={'pink.400'}
+            href={'/auth/signup'}
+            _hover={{
+              bg: 'pink.300',
+            }}>
+            Sign Up
+          </Button>
+          </div>
+         )}
               </Menu>
 
         <Stack
@@ -113,27 +144,10 @@ export default function WithSubnavigation() {
           justify={'flex-end'}
           direction={'row'}
           spacing={6}>
-          <Button
-            as={'a'}
-            fontSize={'sm'}
-            fontWeight={400}
-            variant={'link'}
-            href={'#'}>
-            Sign In
-          </Button>
-          <Button
-            display={{ base: 'none', md: 'inline-flex' }}
-            fontSize={'sm'}
-            fontWeight={600}
-            color={'white'}
-            bg={'pink.400'}
-            href={'#'}
-            _hover={{
-              bg: 'pink.300',
-            }}>
-            Sign Up
-          </Button>
+         
+         
         </Stack>
+    
       </Flex>
 
       <Collapse in={isOpen} animateOpacity>

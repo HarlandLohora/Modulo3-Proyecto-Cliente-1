@@ -1,13 +1,13 @@
 import React from 'react'
 import './index.css'
 
-const Profile = () => {
+const Profile = (props) => {
   return (
     <div className='container'>
       <div className='user-profile'>
         <div className='user-img'>
           <img src=''></img>
-          <h5 className='user-name'>User Name</h5>
+          <h5 className='user-name'>{props.user?.username}</h5>
           <h5 className='user-occupation'>User Ocupation</h5>
         </div>
         <div className='user-info'>
