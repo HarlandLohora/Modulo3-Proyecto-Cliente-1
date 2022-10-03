@@ -109,6 +109,7 @@ export default function WithSubnavigation(props) {
                   <MenuItem><a href='/profile'>Your account</a></MenuItem>
                   <MenuItem><button className="nav-logoutbtn" onClick={props.handleLogout}>Logout</button></MenuItem>
                 </MenuList>
+                <a href='/create'>Create Publication</a>
                 </>
         ):( 
           <div>

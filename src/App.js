@@ -10,6 +10,7 @@ import LogIn from "./pages/LogIn";
 import Signup from "./pages/Signup";
 import Profile from "./pages/profile";
 import SinglePost from "./pages/singlePost";
+import CreatePost from "./pages/createPost";
 
 
 export default function App() {
@@ -67,6 +68,7 @@ export default function App() {
         <Route path="/auth/signup" element={<Signup authenticate={authenticate}/>} ></Route>
         <Route path="/profile" element={<Profile authenticate={authenticate}/>}></Route>
         <Route path="/singlePost" element={<SinglePost />}></Route>
+        <Route path="/create" element={<CreatePost   />}></Route>
       </Routes>
     </div>
   );
