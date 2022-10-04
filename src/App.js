@@ -9,8 +9,11 @@ import HomePage from "./pages/HomePage";
 import LogIn from "./pages/LogIn";
 import Signup from "./pages/Signup";
 import Profile from "./pages/profile";
-import SinglePost from "./pages/singlePost";
-import CreatePost from "./pages/createPost";
+
+
+import PostListPage from "./pages/PostListpage";
+import PostDetailsPage from "./pages/PostDetailsPage";
+import EditPostPage from "./pages/EditPostPage";
 
 
 export default function App() {
@@ -66,9 +69,12 @@ export default function App() {
         <Route path="/" element={<HomePage/>}></Route>
         <Route path="/auth/login" element={<LogIn authenticate={authenticate}/>}></Route>
         <Route path="/auth/signup" element={<Signup authenticate={authenticate}/>} ></Route>
-        <Route path="/profile" element={<Profile authenticate={authenticate}/>}></Route>
-        <Route path="/singlePost" element={<SinglePost />}></Route>
-        <Route path="/create" element={<CreatePost   />}></Route>
+        <Route path="/profile" element={<Profile user={user}/> }></Route>
+        
+       
+        <Route path="/post" element={<PostListPage />} />
+        <Route path="/post/:postId" element={<PostDetailsPage />} />    
+        <Route path="/post/edit/:postId" element={ <EditPostPage /> } />     
       </Routes>
     </div>
   );

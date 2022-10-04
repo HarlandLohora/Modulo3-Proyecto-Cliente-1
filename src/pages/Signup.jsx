@@ -25,8 +25,9 @@ export default function Signup({ authenticate }) {
   const [form, setForm] = useState({
     username: "",
     password: "",
+    email: "",
   });
-  const { username, password } = form;
+  const { username, password, email } = form;
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
@@ -40,6 +41,7 @@ export default function Signup({ authenticate }) {
     const credentials = {
       username,
       password,
+      email,
     };
     signup(credentials).then((res) => {
       if (!res.status) {
@@ -113,6 +115,16 @@ export default function Signup({ authenticate }) {
           name="username"
           placeholder="Text"
           value={username}
+          onChange={handleInputChange}
+          required
+        />
+
+        <Input
+          id="input-email"
+          type="text"
+          name="email"
+          placeholder="email@gmail.com"
+       
           onChange={handleInputChange}
           required
         />
