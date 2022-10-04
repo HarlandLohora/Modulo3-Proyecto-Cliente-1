@@ -31,6 +31,7 @@ function PostDetailsPage (props) {
         <>
           <h1>{post.name}</h1>
           <p>{post.description}</p>
+          
         </>
       )}
 

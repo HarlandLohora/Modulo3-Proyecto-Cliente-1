@@ -30,6 +30,7 @@ function PostListPage() {
               <Link to={`/post/${post._id}`}>
                 <h3>{post.name}</h3>
                 <p>{post.description}</p>
+                <img src={post.imageUrl}></img>
               </Link>
             </div>
           );
