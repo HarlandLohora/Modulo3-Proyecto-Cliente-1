@@ -76,7 +76,7 @@ function PostListPage() {
           />
           <Stack direction={'column'} spacing={0} fontSize={'sm'}>
             <Text fontWeight={600}>{post.author}</Text>
-            
+            <Text>{post.createdAt.substring(0,10)}</Text>
           </Stack>
         </Stack>
         <br></br>

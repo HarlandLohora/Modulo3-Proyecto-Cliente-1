@@ -33,3 +33,20 @@
   width: 290px;
   height: 240px;
 }
+
+.delete{
+  margin-bottom: 50px;
+}
+
+.edit_post{
+  text-align: center;
+  font-size: 40px;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+.input{
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  padding: 10px;
+}

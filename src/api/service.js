@@ -17,7 +17,7 @@ const getPost = () => {
 };
 
 const uploadImage = (file) => {
-  return api.post("/upload", file)
+  return api.post("/post/upload", file)
     .then(res => res.data)
     .catch(errorHandler);
 };

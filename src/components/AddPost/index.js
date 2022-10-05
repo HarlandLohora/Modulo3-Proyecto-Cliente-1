@@ -19,6 +19,7 @@ function AddPost(props) {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [imageUrl, setImageUrl] = useState("");
+ 
 
   const handleFileUpload = (e) => {
     // console.log("The file to be uploaded is: ", e.target.files[0]);
@@ -32,7 +33,7 @@ function AddPost(props) {
     service
       .uploadImage(uploadData)
       .then(response => {
-        // console.log("response is: ", response);
+        console.log("response is: ", response);
         // response carries "fileUrl" which we can use to update the state
         setImageUrl(response.fileUrl);
       })
@@ -50,6 +51,7 @@ function AddPost(props) {
         setName("");
         setDescription("");
         setImageUrl("");
+        
         props.refreshPost(); 
       })
       .catch((error) => console.log(error));
