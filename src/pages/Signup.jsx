@@ -19,17 +19,35 @@ import {
   IconProps,
   Icon,
 } from '@chakra-ui/react';
-
+import service from "../api/service";
 
 export default function Signup({ authenticate }) {
+    
+
+  
   const [form, setForm] = useState({
     username: "",
     password: "",
     email: "",
+    imageUrl: "",
   });
+
   const { username, password, email } = form;
   const [error, setError] = useState(null);
+  const [imageUrl, setImageUrl] = useState("");
   const navigate = useNavigate();
+
+  const handleFileUpload = (e) => {
+    const uploadData = new FormData();
+    uploadData.append("imageUrl", e.target.files[0]);
+ 
+    service
+      .uploadImage(uploadData)
+      .then(response => {
+        setImageUrl(response.fileUrl);
+      })
+      .catch(err => console.log("Error while uploading the file: ", err));
+  };
 
   function handleInputChange(event) {
     const { name, value } = event.target;
@@ -42,6 +60,7 @@ export default function Signup({ authenticate }) {
       username,
       password,
       email,
+      imageUrl,
     };
     signup(credentials).then((res) => {
       if (!res.status) {
@@ -140,6 +159,8 @@ export default function Signup({ authenticate }) {
           required
           minLength="8"
         />
+        
+        <input type="file" onChange={(e) => handleFileUpload(e)} />
 
         {error && (
           <div className="error-block">

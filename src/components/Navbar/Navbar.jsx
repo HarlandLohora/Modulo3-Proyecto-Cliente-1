@@ -36,7 +36,7 @@ export default function WithSubnavigation(props) {
   return (
     
     <Box>
-    <div className='container'>
+    
       <Flex
         bg={useColorModeValue('white', 'gray.800')}
         color={useColorModeValue('gray.600', 'white')}
@@ -47,15 +47,20 @@ export default function WithSubnavigation(props) {
         borderStyle={'solid'}
         borderColor={useColorModeValue('gray.200', 'gray.900')}
         align={'center'}>
+        
         <Flex
           flex={{ base: 1, md: 'auto' }}
           ml={{ base: -2 }}
           display={{ base: 'flex', md: 'none' }}>
           <IconButton
             onClick={onToggle}
-            /*icon={
-              isOpen ? <GrClose w={3} h={3} /> : <GiHamburgerMenu w={5} h={5} />
-            }*/
+            icon={
+              isOpen ? <p><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+  <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+</svg></p> : <p><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+</svg></p>
+            }
             variant={'ghost'}
             aria-label={'Toggle Navigation'}
           />
@@ -65,7 +70,7 @@ export default function WithSubnavigation(props) {
             textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
             fontFamily={'heading'}
             color={useColorModeValue('gray.800', 'white')}>
-          <a href='/'>LOGO</a>
+          <a href='/'><img src='./images/logo.png' width={90} height={90}></img></a>
           </Text>
 
           <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
@@ -75,7 +80,11 @@ export default function WithSubnavigation(props) {
         </Flex>
               
         <Button onClick={toggleColorMode}>
-                {colorMode === 'light' ? <h1>Claro</h1> : <h1>Oscuro</h1>}
+                {colorMode === 'light' ? <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-moon-fill" viewBox="0 0 16 16">
+  <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
+</svg> : <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-moon" viewBox="0 0 16 16">
+  <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278zM4.858 1.311A7.269 7.269 0 0 0 1.025 7.71c0 4.02 3.279 7.276 7.319 7.276a7.316 7.316 0 0 0 5.205-2.162c-.337.042-.68.063-1.029.063-4.61 0-8.343-3.714-8.343-8.29 0-1.167.242-2.278.681-3.286z"/>
+</svg>}
         </Button>
             
         <Menu>
@@ -109,10 +118,10 @@ export default function WithSubnavigation(props) {
                   <MenuItem><a href='/profile'>Your account</a></MenuItem>
                   <MenuItem><button className="nav-logoutbtn" onClick={props.handleLogout}>Logout</button></MenuItem>
                 </MenuList>
-                <a href='/create'>Create Publication</a>
+                <a href='/post'>Create Publication</a>
                 </>
         ):( 
-          <div>
+          <div className='login'>
           <Button
             as={'a'}
             fontSize={'sm'}
@@ -129,7 +138,7 @@ export default function WithSubnavigation(props) {
             fontSize={'sm'}
             fontWeight={600}
             color={'white'}
-            bg={'pink.400'}
+            bg={'#E80002  '}
             href={'/auth/signup'}
             _hover={{
               bg: 'pink.300',
@@ -145,16 +154,17 @@ export default function WithSubnavigation(props) {
           justify={'flex-end'}
           direction={'row'}
           spacing={6}>
-         
-         
+         {/* here link  */}
+       
         </Stack>
     
       </Flex>
 
       <Collapse in={isOpen} animateOpacity>
         <MobileNav />
+        <a>h</a>
       </Collapse>
-      </div>
+  
     </Box>
     
   );
