@@ -12,6 +12,8 @@ import {
   Text,
   Container,
   Input,
+  InputGroup,
+  InputRightElement,
   Button,
   SimpleGrid,
   Avatar,
@@ -32,7 +34,7 @@ export default function Signup({ authenticate }) {
     imageUrl: "",
   });
 
-  const { username, password, email } = form;
+  const { username,ocupation, password, email } = form;
   const [error, setError] = useState(null);
   const [imageUrl, setImageUrl] = useState("");
   const navigate = useNavigate();
@@ -58,6 +60,7 @@ export default function Signup({ authenticate }) {
     event.preventDefault();
     const credentials = {
       username,
+      ocupation,
       password,
       email,
       imageUrl,
@@ -77,8 +80,11 @@ export default function Signup({ authenticate }) {
     });
   }
 
+  const [show, setShow] = React.useState(false)
+  const handleClick = () => setShow(!show)
+
   return (
-    <div>
+    <div className="login-form">
      <Box position={'relative'}>
       <Container
         as={SimpleGrid}
@@ -87,17 +93,8 @@ export default function Signup({ authenticate }) {
         spacing={{ base: 10, lg: 32 }}
         py={{ base: 10, sm: 20, lg: 32 }}>
         <Stack spacing={{ base: 10, md: 20 }}>
-          <Heading
-            lineHeight={1.1}
-            fontSize={{ base: '3xl', sm: '4xl', md: '5xl', lg: '6xl' }}>
-            Senior web designers{' '}
-            <Text
-              as={'span'}
-              bgGradient="linear(to-r, red.400,pink.400)"
-              bgClip="text">
-              &
-            </Text>{' '}
-            Full-Stack Developers
+          <Heading>
+              <img src="../images/login.png"></img>
           </Heading>
        
         </Stack>
@@ -120,36 +117,74 @@ export default function Signup({ authenticate }) {
                 !
               </Text>
             </Heading>
-            <Text color={'gray.500'} fontSize={{ base: 'sm', sm: 'md' }}>
-              We are looking for amazing engineers just like you! Become a part
-              of our rockstar engineering team and skyrocket your career!
-            </Text>
+          
           </Stack>
       
       <form onSubmit={handleFormSubmission} className="auth__form">
+
+    
+
         <label htmlFor="input-username">Username</label>
         <Input
           id="input-username"
           type="text"
           name="username"
-          placeholder="Text"
+          placeholder="UserName..."
           value={username}
           onChange={handleInputChange}
           required
         />
 
+        <label htmlFor="input-username">Ocupation</label>
+        <Input
+          id="input-ocupation"
+          type="text"
+          name="ocupation"
+          placeholder="Ocupation..."
+          value={ocupation}
+          onChange={handleInputChange}
+         
+        />
+
+        <label htmlFor="input-username">Email</label>
         <Input
           id="input-email"
           type="text"
           name="email"
           placeholder="email@gmail.com"
-       
           onChange={handleInputChange}
           required
         />
 
         <label htmlFor="input-password">Password</label>
-        <Input
+
+        <InputGroup size='md'>
+          <Input
+            pr='4.5rem'
+            type={show ? 'text' : 'password'}
+            name="password"
+              placeholder="Password..."
+              value={password}
+              onChange={handleInputChange}
+              required
+              minLength="8"
+              id="input-password"
+          />
+          <InputRightElement width='4.5rem'>
+            <Button h='1.75rem' size='sm' onClick={handleClick}>
+              {show ? <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
+  <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"/>
+  <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>
+</svg> : <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-slash" viewBox="0 0 16 16">
+  <path d="M13.359 11.238C15.06 9.72 16 8 16 8s-3-5.5-8-5.5a7.028 7.028 0 0 0-2.79.588l.77.771A5.944 5.944 0 0 1 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.134 13.134 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755-.165.165-.337.328-.517.486l.708.709z"/>
+  <path d="M11.297 9.176a3.5 3.5 0 0 0-4.474-4.474l.823.823a2.5 2.5 0 0 1 2.829 2.829l.822.822zm-2.943 1.299.822.822a3.5 3.5 0 0 1-4.474-4.474l.823.823a2.5 2.5 0 0 0 2.829 2.829z"/>
+  <path d="M3.35 5.47c-.18.16-.353.322-.518.487A13.134 13.134 0 0 0 1.172 8l.195.288c.335.48.83 1.12 1.465 1.755C4.121 11.332 5.881 12.5 8 12.5c.716 0 1.39-.133 2.02-.36l.77.772A7.029 7.029 0 0 1 8 13.5C3 13.5 0 8 0 8s.939-1.721 2.641-3.238l.708.709zm10.296 8.884-12-12 .708-.708 12 12-.708.708z"/>
+</svg>}
+            </Button>
+          </InputRightElement>
+        </InputGroup>
+
+    {/**<Input
           id="input-password"
           type="password"
           name="password"
@@ -158,9 +193,10 @@ export default function Signup({ authenticate }) {
           onChange={handleInputChange}
           required
           minLength="8"
-        />
+        /> */}
         
-        <input type="file" onChange={(e) => handleFileUpload(e)} />
+        
+        <input type="file" onChange={(e) => handleFileUpload(e)} className="file"/>
 
         {error && (
           <div className="error-block">
@@ -169,8 +205,13 @@ export default function Signup({ authenticate }) {
           </div>
         )}
 
-        <button className="button__submit">
-          Submit
+        <button className="btn submit">
+        <div class="icono">
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-circle" viewBox="0 0 16 16">
+						<path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
+					  </svg>
+				</div>
+          <span>submit</span>
         </button>
       </form>
       </Stack>

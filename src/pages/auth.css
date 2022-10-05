@@ -9,23 +9,6 @@ form.auth__form {
   margin: 0 auto;
 }
 
-button.button__submit {
-  width: 100%;
-  margin: 1em auto;
-  background-color: blue;
-  padding: 10px;
-  text-transform: uppercase;
-  font-weight: bold;
-  color: #fff;
-  transition: all .3s;
-  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-  border: none;
-}
-
-button.button__submit:hover{
-  background-color: red;
-}
-
 .error-block{
   background-color: #ed4337;
   border-radius: 5px;
@@ -37,14 +20,85 @@ button.button__submit:hover{
 
 /*-----------singup-----------------*/
 
-#input-username, #input-password{
+.file{
+  margin: 10px;
+}
+
+#input-username, #input-password, #input-email, #input-ocupation{
   border: 1px solid #000;
   color: rgba(0, 0, 0, 0.5);
 }
 
-#input-username::placeholder, #input-password::placeholder{
+#input-username::placeholder, #input-password::placeholder, #input-email::placeholder, #input-ocupation::placeholder{
   color: rgba(0, 0, 0, 255);
 }
 
+.btn{
+  display: inline-flex;
+  width: 100%;
+  height: 45px;
+  color: #fff;
+  background: #E80002;
+  font-size: 20px;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all .3s ease;
+  border-radius: 5px;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn span{
+  position: relative;
+  z-index: 2;
+  transition: all .3s ease;
+}
+
+.submit span{
+  transition: all .4s ease-in-out;
+  position: absolute;
+  left: 40%;
+}
+
+.submit:hover span{
+  left: 20px;
+}
 
 
+.icono{
+  display: flex;
+  align-items: center;
+  position: absolute;
+  z-index: 2;
+  left: -40px;
+  transition: all .3s ease-in-out;
+  opacity: 0;
+}
+
+.submit:hover .icono{
+  left: 200px;
+  opacity: 1;
+}
+
+
+.submit svg{
+  color: #fff;
+  width: 35px;
+  height: 35px;
+}
+
+/*-----------------------------------*/
+.login-form{
+  background: url("../../public/images/fondo-login.png");
+  background-repeat:no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.pass{
+  margin-bottom: 10px;
+}

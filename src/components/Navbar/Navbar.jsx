@@ -70,7 +70,7 @@ export default function WithSubnavigation(props) {
             textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
             fontFamily={'heading'}
             color={useColorModeValue('gray.800', 'white')}>
-          <a href='/'><img src='./images/logo.png' width={90} height={90}></img></a>
+          <a href='/'><img src='../images/logo.png' width={90} height={90}></img></a>
           </Text>
 
           <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
