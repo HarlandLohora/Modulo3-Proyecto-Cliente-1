@@ -16,6 +16,7 @@ import PostDetailsPage from "./pages/PostDetailsPage";
 import EditPostPage from "./pages/EditPostPage";
 
 
+
 export default function App() {
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -73,6 +74,7 @@ export default function App() {
         
        
         <Route path="/post" element={<PostListPage />} />
+  
         <Route path="/post/:postId" element={<PostDetailsPage />} />    
         <Route path="/post/edit/:postId" element={ <EditPostPage /> } />     
       </Routes>

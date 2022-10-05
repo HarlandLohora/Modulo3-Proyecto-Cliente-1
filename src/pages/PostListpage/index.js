@@ -2,6 +2,15 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import AddPost from "../../components/AddPost";
+import {
+  Box,
+  Center,
+  Heading,
+  Text,
+  Stack,
+  Avatar,
+  useColorModeValue,
+} from '@chakra-ui/react';
 
 const API_URL = "http://localhost:5005";
 
@@ -22,17 +31,58 @@ function PostListPage() {
   
   return (
     <div className="">
+    <a href="#postList" className="btn">View All Post</a>
        <AddPost refreshPost={getAllPost} />
-       <h4>List of Post</h4>
+    
         {post.map((post) => {
           return (
-            <div className="" key={post._id} >
-              <Link to={`/post/${post._id}`}>
-                <h3>{post.name}</h3>
-                <p>{post.description}</p>
-                <img src={post.imageUrl}></img>
-              </Link>
-            </div>
+            <Center py={6} id={"postList"}>
+      <Box
+        maxW={'900px'}
+        w={'full'}
+        bg={useColorModeValue('white', 'gray.900')}
+        boxShadow={'2xl'}
+        rounded={'md'}
+        p={6}
+        overflow={'hidden'}>
+        <Box
+          h={'210px'}
+          bg={'gray.100'}
+          mt={-6}
+          mx={-6}
+          mb={6}
+          pos={'relative'}>
+         <img src={post.imageUrl} w={'100%'} className="img-post-views"></img>
+          
+        </Box>
+        <Stack>
+          <Text
+            color={'green.500'}
+            textTransform={'uppercase'}
+            fontWeight={800}
+            fontSize={'sm'}
+            letterSpacing={1.1}>
+           {post.name}
+          </Text>
+         
+          <Text color={'gray.500'}>
+          {post.description}
+          </Text>
+        </Stack>
+        <Stack mt={6} direction={'row'} spacing={4} align={'center'}>
+          <Avatar
+            src={'https://avatars0.githubusercontent.com/u/1164541?v=4'}
+            alt={'Author'}
+          />
+          <Stack direction={'column'} spacing={0} fontSize={'sm'}>
+            <Text fontWeight={600}>{post.author}</Text>
+            
+          </Stack>
+        </Stack>
+        <br></br>
+        <Link to={`/post/${post._id}`} className="btn">link</Link>
+      </Box>
+    </Center>
           );
         })}     
        
