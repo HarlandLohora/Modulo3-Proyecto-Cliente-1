@@ -5,7 +5,7 @@ import AddComments from "../../components/AddComments";
 import Comments from "../../components/Comments/Comments";
 import './index.css'
 
-const API_URL = "http://localhost:5005";    
+const API_URL = `${process.env.REACT_APP_SERVER_URL}`;    
 
 
 function ForomDetailsPage (props) {
@@ -14,7 +14,7 @@ function ForomDetailsPage (props) {
 
   const getForom = () => {          
     axios
-      .get(`${API_URL}/api/forom/${foromId}`)
+      .get(`${API_URL}/forom/${foromId}`)
       .then((response) => {
         const oneForom = response.data;
         console.log(response.data)

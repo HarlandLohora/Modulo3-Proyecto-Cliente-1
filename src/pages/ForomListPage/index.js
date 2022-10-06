@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import AddForom from "../../components/AddForom";
 import ForomCard from "../../components/ForomCard";
 
-const API_URL = "http://localhost:5005";
+const API_URL = `${process.env.REACT_APP_SERVER_URL}`;
 
 
 function ForomListPage() {
@@ -12,7 +12,7 @@ function ForomListPage() {
 
   const getAllForom = () => {
     axios
-      .get(`${API_URL}/api/forom`)
+      .get(`${API_URL}/forom`)
       .then((response) => setForom(response.data))
       .catch((error) => console.log(error));
   };

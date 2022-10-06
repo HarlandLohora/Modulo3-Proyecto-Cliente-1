@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import './index.css'
 
-const API_URL = "http://localhost:5005";
+const API_URL = `${process.env.REACT_APP_SERVER_URL}`;
 
 
 function AddComments(props) {
@@ -16,7 +16,7 @@ function AddComments(props) {
     const requestBody = { name, comment, foromId };
  
     axios
-      .post(`${API_URL}/api/comments`, requestBody)
+      .post(`${API_URL}/comments`, requestBody)
       .then((response) => {
         setName("");
         setComment("");

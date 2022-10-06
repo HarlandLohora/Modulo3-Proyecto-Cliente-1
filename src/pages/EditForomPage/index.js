@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom"; 
 
-const API_URL = "http://localhost:5005";
+const API_URL = `${process.env.REACT_APP_SERVER_URL}`;
 
 function EditForomPage(props) {
   const [title, setTitle] = useState("");
@@ -12,7 +12,7 @@ function EditForomPage(props) {
 
   useEffect(() => {                                  
     axios
-      .get(`${API_URL}/api/forom/${foromId}`)
+      .get(`${API_URL}/forom/${foromId}`)
       .then((response) => {
         const oneForom = response.data;
         setTitle(oneForom.title);
@@ -27,7 +27,7 @@ function EditForomPage(props) {
     const requestBody = { title, description };
  
     axios
-      .put(`${API_URL}/api/forom/${foromId}`, requestBody)
+      .put(`${API_URL}/forom/${foromId}`, requestBody)
       .then((response) => {
         navigate(`/forom/${foromId}`)
       });
@@ -35,7 +35,7 @@ function EditForomPage(props) {
 
   const deleteProject = () => {             
     axios
-      .delete(`${API_URL}/api/forom/${foromId}`)
+      .delete(`${API_URL}/forom/${foromId}`)
       .then(() => {
         navigate("/forom");
       })
