@@ -19,3 +19,13 @@
     font-weight: 200;
     font-size: 20px;
 }
+
+.comments-length{
+    display: flex;
+    font-size: 20px;
+}
+
+.comments-length svg{
+    margin: 4px;
+    width: 20px;
+}
