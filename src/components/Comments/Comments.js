@@ -1,16 +1,9 @@
-import React from 'react'
-import './Comments.css'
+import './index.css'
 
-const Comments = () => {
+function Comments(props) {
   return (
-    <div>
-        <form className='form'>
-            <div className='sms'> <textarea></textarea></div>
-            <div className='btn-sms'><button className='send'>Send <i class="fa fa-paper-plane" aria-hidden="true"></i></button></div>
-        </form>
-
-    </div>
-  )
+    <div className="comment-card"> <h3><strong><em>{props.name}</em></strong>: </h3><p className='p-comments'> {props.comment}</p></div>
+  );
 }
 
-export default Comments
+export default Comments;

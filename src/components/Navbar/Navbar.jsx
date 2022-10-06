@@ -98,7 +98,7 @@ export default function WithSubnavigation(props) {
                   minW={0}>
                   <Avatar
                     size={'sm'}
-                    src={'https://avatars.dicebear.com/api/male/username.svg'}
+                    src={props.user?.imageUrl}
                   />
                 </MenuButton>
                 <MenuList alignItems={'center'}>
@@ -106,7 +106,7 @@ export default function WithSubnavigation(props) {
                   <Center>
                     <Avatar
                       size={'2xl'}
-                      src={'https://avatars.dicebear.com/api/male/username.svg'}
+                      src={props.user?.imageUrl}
                     />
                   </Center>
                   <br />
@@ -118,7 +118,8 @@ export default function WithSubnavigation(props) {
                   <MenuItem><a href='/profile'>Your account</a></MenuItem>
                   <MenuItem><button className="nav-logoutbtn" onClick={props.handleLogout}>Logout</button></MenuItem>
                 </MenuList>
-                <a href='/post'>Create Publication</a>
+                <a href='/post' className='link'>Views Post</a>
+                <a href='/forom' className='link'>Views Forom</a>
                 </>
         ):( 
           <div className='login'>
