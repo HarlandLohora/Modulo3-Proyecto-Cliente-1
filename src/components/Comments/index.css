@@ -1,0 +1,9 @@
+.comment-card{
+    display: flex;
+    background-color: blue;
+    width: 60%;
+    margin: 4px auto;
+    padding:10px;
+    color: #fff;
+}
+

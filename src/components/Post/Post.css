@@ -1,0 +1,43 @@
+/*--------post-------*/
+.post-container{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+    padding: 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  }
+  
+  .post-img{
+    width: 20%;
+  }
+  
+  .post-img img{
+    width: 200px;
+    height: 200px;
+  }
+  
+  .post-content{
+    width: 60%;
+  }
+  
+  .post-content h1{
+    font-size: 30px;
+    text-align: start;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  .post-content p{
+    font-style: italic;
+    font-weight: 200;
+    text-align: start;
+  }
+  
+  .post-react{
+    display: flex;
+    padding: 5px;
+  }
+  
+  .post-react div{
+    margin: 10px;
+  }

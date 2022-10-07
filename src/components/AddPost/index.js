@@ -13,7 +13,7 @@ import {
   createIcon,
 } from '@chakra-ui/react';
  
-const API_URL = "http://localhost:5005";
+const API_URL = `${process.env.REACT_APP_SERVER_URL}`;
  
 function AddPost(props) {
   const [name, setName] = useState("");
@@ -22,12 +22,8 @@ function AddPost(props) {
  
 
   const handleFileUpload = (e) => {
-    // console.log("The file to be uploaded is: ", e.target.files[0]);
  
     const uploadData = new FormData();
- 
-    // imageUrl => this name has to be the same as in the model since we pass
-    // req.body to .create() method when creating a new movie in '/api/movies' POST route
     uploadData.append("imageUrl", e.target.files[0]);
  
     service
@@ -46,7 +42,7 @@ function AddPost(props) {
  
     const requestBody = { name, description,imageUrl };
     axios
-      .post(`${API_URL}/api/post`, requestBody)
+      .post(`${API_URL}/post`, requestBody)
       .then((response) => {
         setName("");
         setDescription("");

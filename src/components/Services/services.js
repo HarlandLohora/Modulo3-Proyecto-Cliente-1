@@ -136,6 +136,8 @@ const Services = () => {
         
 
           <Button
+            as={'a'}
+            href={'/forom'}
             mt={10}
             w={'full'}
             bg={'#E80002'}
@@ -148,7 +150,7 @@ const Services = () => {
             _focus={{
               bg: '#E80012',
             }}>
-           Create Post
+           Create Forom
           </Button>
         </Box>
       </Box>

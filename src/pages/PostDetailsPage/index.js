@@ -20,7 +20,7 @@ import {
   ListItem,
 } from '@chakra-ui/react';
  
-const API_URL = "http://localhost:5005";       
+const API_URL = `${process.env.REACT_APP_SERVER_URL}`;       
 
 
 function PostDetailsPage (props) {
@@ -29,7 +29,7 @@ function PostDetailsPage (props) {
 
   const getPost = () => {         
     axios
-      .get(`${API_URL}/api/post/${postId}`)
+      .get(`${API_URL}/post/${postId}`)
       .then((response) => {
         const onePost = response.data;
         setPost(onePost);

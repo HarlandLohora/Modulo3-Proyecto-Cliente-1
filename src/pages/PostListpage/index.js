@@ -12,7 +12,7 @@ import {
   useColorModeValue,
 } from '@chakra-ui/react';
 
-const API_URL = "http://localhost:5005";
+const API_URL = `${process.env.REACT_APP_SERVER_URL}`;
 
 
 function PostListPage() {
@@ -20,7 +20,7 @@ function PostListPage() {
 
   const getAllPost = () => {
     axios
-      .get(`${API_URL}/api/post`)
+      .get(`${API_URL}/post`)
       .then((response) => setPost(response.data))
       .catch((error) => console.log(error));
   };

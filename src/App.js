@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import LoadingComponent from "./components/Loading";
 import Navbar from "./components/Navbar/Navbar";
+
 import { getLoggedIn, logout } from "./services/auth";
 import routes from "./config/routes";
 import * as USER_HELPERS from "./utils/userToken";
@@ -10,11 +11,16 @@ import LogIn from "./pages/LogIn";
 import Signup from "./pages/Signup";
 import Profile from "./pages/profile";
 
-
+//import pages post
 import PostListPage from "./pages/PostListpage";
 import PostDetailsPage from "./pages/PostDetailsPage";
 import EditPostPage from "./pages/EditPostPage";
 
+//import page forom
+import ForomListPage from "./pages/ForomListPage";
+import ForomDetailsPage from "./pages/ForomDetailsPage.js";
+import EditForomPage from "./pages/EditForomPage";
+import Footer from "./components/Footer/Footer";
 
 
 export default function App() {
@@ -72,12 +78,17 @@ export default function App() {
         <Route path="/auth/signup" element={<Signup authenticate={authenticate}/>} ></Route>
         <Route path="/profile" element={<Profile user={user}/> }></Route>
         
-       
+       {/* Routes for post */}
         <Route path="/post" element={<PostListPage />} />
-  
         <Route path="/post/:postId" element={<PostDetailsPage />} />    
         <Route path="/post/edit/:postId" element={ <EditPostPage /> } />     
+
+        {/** Routes for forom */}
+        <Route path="/forom" element={<ForomListPage />} />
+        <Route path="/forom/:foromId" element={<ForomDetailsPage />} />
+        <Route path="/forom/edit/:foromId" element={ <EditForomPage /> } />
       </Routes>
+      <Footer/>
     </div>
   );
 }

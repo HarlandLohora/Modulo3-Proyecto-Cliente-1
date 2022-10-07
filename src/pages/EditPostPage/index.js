@@ -20,7 +20,7 @@ import {
   ListItem,
 } from '@chakra-ui/react';
 
-const API_URL = "http://localhost:5005";
+const API_URL = `${process.env.REACT_APP_SERVER_URL}`;
 
 function EditPostPage(props) {
   const [name, setName] = useState("");
@@ -32,7 +32,7 @@ function EditPostPage(props) {
   
  useEffect(() => {                             
     axios
-      .get(`${API_URL}/api/post/${postId}`)
+      .get(`${API_URL}/post/${postId}`)
       .then((response) => {
         const onePost = response.data;
         setName(onePost.name);
@@ -48,7 +48,7 @@ function EditPostPage(props) {
     const requestBody = { name, description };
  
     axios
-      .put(`${API_URL}/api/post/${postId}`, requestBody)
+      .put(`${API_URL}/post/${postId}`, requestBody)
       .then(() => {
         navigate(`/post/${postId}`)
       });
@@ -56,7 +56,7 @@ function EditPostPage(props) {
   
   const deletePost = () => {                   
     axios
-      .delete(`${API_URL}/api/post/${postId}`)
+      .delete(`${API_URL}/post/${postId}`)
       .then(() => {
         navigate("/post");
       })
