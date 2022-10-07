@@ -24,7 +24,7 @@ function AddForom(props) {
  
     const requestBody = { title, description };
     axios
-      .post(`${API_URL}/api/forom`, requestBody)
+      .post(`${API_URL}/forom`, requestBody)
       .then((response) => {
         setTitle("");
         setDescription("");
